@@ -87,7 +87,9 @@ export function fetchUberEstimate(startLat, startLng, destinationLat, destinatio
     dispatch({ type: 'FETCHING_UBER_ESTIMATE' });
     fetch(`/RailsApi/uber?startLat=${startLat}&startLng=${startLng}&destinationLat=${destinationLat}&destinationLng=${destinationLng}`)
     .then(response => response.json())  
-    .then(data => dispatch({ type: 'ADD_UBER_ESTIMATES_TO_STATE', estimates: data.prices }))
+    .then(data => _normalizeUber(data))
+    .then(estimates => estimates.reverse().slice(1))
+    .then(estimates => dispatch({ type: 'ADD_UBER_ESTIMATES_TO_STATE', estimates: estimates }))
   };
 }
 
@@ -95,8 +97,8 @@ export function fetchLyftEstimate(startLat, startLng, destinationLat, destinatio
   return (dispatch) => {
     dispatch({ type: 'FETCHING_LYFT_ESTIMATE' });
     fetch(`/RailsApi/lyft?startLat=${startLat}&startLng=${startLng}&destinationLat=${destinationLat}&destinationLng=${destinationLng}`)
-    .then(response => response.json())
-    .then(data => dispatch({ type: 'ADD_LYFT_ESTIMATES_TO_STATE', estimates: data.cost_estimates })) 
+    .then(response => _normalizeLyft(data))
+    .then(estimates => dispatch({ type: 'ADD_LYFT_ESTIMATES_TO_STATE', estimates: estimates })) 
   };
 }  
 
