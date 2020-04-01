@@ -3,7 +3,7 @@ import Result from './Result';
 import Card from '../Card';
 
 class Results extends Component {
-
+  
   render(){
   return(
     <div >
