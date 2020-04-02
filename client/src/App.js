@@ -17,7 +17,15 @@ class App extends Component {
 
   render() {
   return (
-    <div className="App">
+    <div style={{
+      display: "flex",
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: "auto",
+      height: "auto",
+      backgroundImage: `url(${Background})`
+        }}className="App">
       <Router>
         <div>
           <Route exact path="/" component={SearchContainer}/>
