@@ -6,10 +6,10 @@ class Results extends Component {
   
   render(){
   return(
-    <div >
+    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
       <Card label={this.props.label}>
-        <Result header={"Uber"} uberEstimates={this.props.uberEstimates}/> 
-        <Result header={"Lyft"} lyftEstimates={this.props.lyftEstimates}/>
+        <Result header={"Uber"} estimates={this.props.uberEstimates} buttonTitle={"Take me to Uber"}/>/> 
+        <Result header={"Lyft"} estimates={this.props.lyftEstimates} buttonTitle={"Take me to Lyft"}/>
       </Card>
     </div> 
   )};

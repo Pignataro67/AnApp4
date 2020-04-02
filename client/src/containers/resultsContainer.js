@@ -9,10 +9,15 @@ import { connect } from 'react-redux';
 class ResultsContainer extends Component {
 
   render() {
-    let cardLabel = "Enjoy your ride!"
+    const cardStyle = {
+      display: 'flex',
+      flexDirection: 'column',
+      WebkitTransition: 'all', // note the capital 'W' here
+      msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+    };
 
     return(
-      <Card>
+      <Card style={cardStyle}>
         <CardLabel cardLabel={cardLabel} />
       <Results {...this.props}/> /> 
       </Card>
