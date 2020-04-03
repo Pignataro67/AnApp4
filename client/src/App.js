@@ -8,9 +8,20 @@ import ResultsContainer from './containers/ResultsContainer';
 import SearchContainer from './containers/SearchContainer';
 import Background from './images/Background.jpg';
 import { getMapboxKey } from './actions/fetchLocations';
+import PageTitle from './components/PageTitle';
 
 class App extends Component {
   
+  componentDidMount(){
+    if(this.props.isFetchingUberEstimate){
+      return <Loader type="line-scale" active />
+    }
+  }
+  
+  componentDidUpdate(){
+    return <Loader type="line-scale" hidden />
+  }
+
   componentDidMount(){
     this.props.getMapboxKey()
   }
@@ -22,8 +33,8 @@ class App extends Component {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      width: "auto",
-      height: "auto",
+      width: "100vw",
+      height: "100vh",
       backgroundImage: `url(${Background})`
         }}className="App">
       <Router>
