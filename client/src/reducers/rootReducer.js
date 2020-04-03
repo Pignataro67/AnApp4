@@ -12,8 +12,8 @@ export default function rootReducer(state = {
   destinationLng: '', 
   isFetchingUberEstimate: false,
   isFetchingLyftEstimate: false,
-  uberEstimate: '',
-  lyftEstimates: ''
+  uberEstimate: [{type: "UberX", costEstimate: '$10-12'}, {type: "UberX", costEstimate: '$10-12'}, {type: "UberX", costEstimate: '$10-12'}],
+  lyftEstimates: [{type: "LyftA", costEstimate: '$10-12'}, {type: "LyftA", costEstimate: '$10-12'}, {type: "LyftA", costEstimate: '$10-12'}]
     }, action) {
   switch(action.type) {
     case 'FETCHING_MAPBOX_KEY':
@@ -37,9 +37,11 @@ export default function rootReducer(state = {
     case "RETRIEVE_DESTINATION_LAT_LONG":
       return {...state, isConvertingDestinationLatLong: false, destinationLat: action.destinationLat, destinationLng: action.destinationLng }
     case "FETCHING_UBER_ESTIMATE":
-      return {...state, isFetchingUberEstimate: true, uberEstimate: ''}
+      return {...state, isFetchingUberEstimate: true, uberEstimate: []}
     case "ADD_UBER_ESTIMATES_TO_STATE":
       return {...state, isFetchingUberEstimate: false, uberEstimates: action.estimates }
+    case "FETCHING_LYFT_ESTIMATE":
+      return {...state, isFetchingLyftEstimate: true, lyftEstimates: [] }
     case "ADD_LYFT_ESTIMATES_TO_STATE":
       return {...state, isFetchingLyftEstimate: false, lyftEstimates: action.estimates }    
         default:
