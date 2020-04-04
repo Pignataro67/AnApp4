@@ -4,6 +4,16 @@ import Card from '../Card';
 
 class Results extends Component {
   
+  componentDidMount(){
+    if(this.props.isFetchingUberEstimate){
+      return <Loader type="line-scale" active />
+    }
+  }
+  
+  componentDidUpdate(){
+    return <Loader type="line-scale" hidden />
+  }
+
   render(){
   return(
     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>

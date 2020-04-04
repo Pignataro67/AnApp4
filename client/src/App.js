@@ -12,17 +12,7 @@ import PageTitle from './components/PageTitle';
 
 class App extends Component {
   
-  componentDidMount(){
-    if(this.props.isFetchingUberEstimate){
-      return <Loader type="line-scale" active />
-    }
-  }
-  
-  componentDidUpdate(){
-    return <Loader type="line-scale" hidden />
-  }
-
-  componentDidMount(){
+  componentDidMount() {
     this.props.getMapboxKey()
   }
 
