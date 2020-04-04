@@ -13,7 +13,7 @@ class SearchInput extends Component {
   }
 
   componentDidUpdate(prevProps){
-    if(prevProps.suggestedLocations !== this.props.suggestedLocations){
+    if(prevProps.suggestedLocations !== this.props.suggestedLocations && this.props.suggestedLocations.length){
       this.addSuggestedLocationsToState(this.props.suggestedLocations)
     }
   }
@@ -40,7 +40,8 @@ class SearchInput extends Component {
   render() {
     return (
       <form onSubmit={this.props.onSubmit}>
-        <Dropdown 
+        <Dropdown
+          loading={this.props.loading} 
         onSearchChange={this.props.onChange} 
         onChange={this.handleDropdownChange} 
         placeholder={this.props.label} 

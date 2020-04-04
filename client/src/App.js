@@ -8,7 +8,6 @@ import ResultsContainer from './containers/ResultsContainer';
 import SearchContainer from './containers/SearchContainer';
 import Background from './images/Background.jpg';
 import { getMapboxKey } from './actions/fetchLocations';
-import PageTitle from './components/PageTitle';
 
 class App extends Component {
   
