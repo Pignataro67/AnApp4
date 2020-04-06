@@ -11,7 +11,7 @@ class Results extends Component {
   }
   
   componentDidUpdate(){
-    return <Loader type="line-scale" hidden />
+    console.log("yes")
   }
 
   render(){

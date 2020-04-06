@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ConfirmRoute from '../components/confirmRoute/ConfirmRoute';
 import CardLabel from '../components/CardLabel';
 import Card from '../components/Card';
-import * as searchActions from '../actions/fetchLocations';
+import * as confirmRouteActions from '../actions/confirmRouteActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -18,6 +18,14 @@ class ConfirmRouteContainer extends Component{
         </Card>
       )
     };
+}
+
+const mapStateToProps = state => ({
+  ...state
+})
+
+const mapDispatchToProps = (dispatch) => {
+  return {...bindActionCreators(confirmRouteActions, dispatch)}
 }
 
 export default (mapStateToProps, mapDispatchToProps, (stateProps, dispatchProps, ownProps) => {
