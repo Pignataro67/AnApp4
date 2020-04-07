@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Search from '../components/search/Search';
 import CardLabel from '../components/CardLabel';
-import * as searchActions from '../actions/fetchLocations';
+import * as searchActions from '../actions/searchActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Card from '../components/Card';
