@@ -9,10 +9,6 @@ class Results extends Component {
       return <Loader type="line-scale" active />
     }
   }
-  
-  componentDidUpdate(){
-    console.log("yes")
-  }
 
   render(){
   return(
