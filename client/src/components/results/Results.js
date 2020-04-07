@@ -1,11 +1,13 @@
 import React, { Component} from 'react';
 import Result from './Result';
-import Card from '../Card';
+import Button from '../Button';
+import Loader from 'react-loaders';
+import { Redirect, Link } from "react-router-dom";
 
 class Results extends Component {
   
   componentDidMount(){
-    if(this.props.isFetchingUberEstimate){
+    if(this.props.resultsReducer.isFetchingUberEstimate){
       return <Loader type="line-scale" active />
     }
   }
@@ -14,9 +16,13 @@ class Results extends Component {
   return(
     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
       <Card label={this.props.label}>
-        <Result header={"Uber"} estimates={this.props.uberEstimates} buttonTitle={"Take me to Uber"}/>/> 
-        <Result header={"Lyft"} estimates={this.props.lyftEstimates} buttonTitle={"Take me to Lyft"}/>
+        <Result header={"Uber"} estimates={this.props.resultsReducer.uberEstimates} buttonTitle={"Take me to Uber"}/>/> 
+        <Result header={"Lyft"} estimates={this.props.resultsReducer.lyftEstimates} buttonTitle={"Take me to Lyft"}/>
       </Card>
+
+      <Link to='/'>
+        <Button buttonTitle="Let's Start Over."/>
+      </Link>
     </div> 
   )};
 }
