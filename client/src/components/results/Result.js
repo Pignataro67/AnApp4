@@ -3,16 +3,19 @@ import { Header, Table } from 'semantic-ui-react';
 import Button from '../Button';
 
 class Result extends Component {
-
+  
   state = {
     estimates: []
   }
 
 componentWillReceiveProps(){
-  const estimates = this.props.estimates.map(({type, costEstimate}) => ({type: type, costEstimate: costEstimate, counter: 0}))  
-  this.setState({
-    estimates
-  })
+  if (nextProps.estimates !== this.state.estimates) {
+
+    const estimates = nextProps.estimates.map(({type, costEstimate}) => ({type: type, costEstimate: costEstimate, counter: 0}))  
+    this.setState({
+      estimates
+    })
+  }
 }
 
 handleOnClick = (idx) => {
