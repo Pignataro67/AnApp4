@@ -6,9 +6,9 @@ import { Redirect, Link } from "react-router-dom";
 
 class Results extends Component {
   
-  componentDidMount(){
+  componentDidMount() {
     if(this.props.resultsReducer.isFetchingUberEstimate){
-      return <Loader type="line-scale" active />
+      console.log("yes")
     }
   }
 
