@@ -3,7 +3,18 @@ import Button from '../Button';
 import { Table } from 'semantic-ui-react';
 
 export default class TableRow extends Component {
+  
+  state = {
+    counter: 0
+  }
 
+  handleOnClick = () => {
+    this.setState((prevState, props) => {
+    //some other calcuations
+    return {counter: prevState.counter + 1}
+    })
+  }
+  
   render() {
     return (
       <Table.Row>
