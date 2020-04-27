@@ -12,7 +12,7 @@ export default class TableRow extends Component {
     this.setState((prevState, props) => {
     //some other calcuations
     return {counter: prevState.counter + 1}
-    })
+    });
   }
   
   render() {

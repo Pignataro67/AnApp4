@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import Result from './Result';
 import Button from '../Button';
 import Loader from 'react-loaders';
@@ -7,16 +7,16 @@ import { Redirect, Link } from "react-router-dom";
 class Results extends Component {
   
   componentDidMount() {
-    if(this.props.resultsReducer.isFetchingUberEstimate){
+    if(this.props.resultsReducer.isFetchingUberEstimate) {
       console.log("yes")
     }
   }
 
-  render(){
-  return(
+  render() {
+  return (
     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
       <Card label={this.props.label}>
-        <Result header={"Uber"} estimates={this.props.resultsReducer.uberEstimates} buttonTitle={"Take me to Uber"}/>/> 
+        <Result header={"Uber"} estimates={this.props.resultsReducer.uberEstimates} buttonTitle={"Take me to Uber"}/>
         <Result header={"Lyft"} estimates={this.props.resultsReducer.lyftEstimates} buttonTitle={"Take me to Lyft"}/>
       </Card>
 

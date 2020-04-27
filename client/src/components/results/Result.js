@@ -6,9 +6,9 @@ import TableRow from './TableRow';
 class Result extends Component {
 
 tableRows(estimates) {
-  return estimates.map(({estimate}) => {
+  return estimates.map((estimate) => {
     return <Table.Row estimate={estimate} />
-  })
+  });
 }
 
 render() {
@@ -31,7 +31,7 @@ render() {
         </Table>
           <Button buttonTitle={this.props.buttonTitle}/>
     </div>
-    )
+    );
   }
 }
 
