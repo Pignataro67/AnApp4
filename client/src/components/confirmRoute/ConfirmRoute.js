@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from '../Button';
 import RouteMap from './RouteMap';
 import Card from '../Card'; 
-import { Redirect } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
 class ConfirmRoute extends Component{
   state = {
@@ -16,13 +16,13 @@ e.preventDefault()
   await this.props.actions.fetchLyftEstimate(this.props.confirmRouteReducer.startLat, this.props.confirmRouteReducer.startLng, this.props.confirmRouteReducer.destinationLat, this.props.confirmRouteReducer.destinationLng)
   this.setState({
     redirectToResults: true
-  })
+  });
 }
 
 handleRedirectBack = () => {
   this.setState({
     redirectToSearch: true
-  })
+  });
 }
 
 render() {
@@ -35,13 +35,15 @@ const { redirectToSearch } = this.state;
     return <Redirect to='/'/>
   }
 
-  return(
-    <Card>
-      <RouteMap mapboxKey={this.props.mapboxReducer.mapboxKey} startLat={this.props.confirmRouteReducer.startLat} startLng={this.props.confirmRouteReducer.startLng} destinationLat={this.props.confirmRouteReducer.destinationLat}  destinationLng={this.props.confirmRouteReducer.destinationLng}/>
-      <Button buttonTitle="No, please try again." onClick={this.handleRedirectBack}/> 
-      <Button buttonTitle="Yes! Let's Drive..." onClick={this.handleRedirect}/>
-    </Card>
-    )
+  return (
+    <div>
+      <Card>
+        <RouteMap mapboxKey={this.props.mapboxReducer.mapboxKey} startLat={this.props.confirmRouteReducer.startLat} startLng={this.props.confirmRouteReducer.startLng} destinationLat={this.props.confirmRouteReducer.destinationLat}  destinationLng={this.props.confirmRouteReducer.destinationLng}/>
+        <Button buttonTitle="No, please try again." onClick={this.handleRedirectBack}/> 
+        <Button buttonTitle="Yes! Let's Drive..." onClick={this.handleRedirect}/>
+      </Card>
+    </div>
+    );
   }
 }
 

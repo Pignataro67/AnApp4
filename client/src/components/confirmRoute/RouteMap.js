@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import ReactMapboxGl, { Layer, Marker } from "react-mapbox-gl";
-import { Icon } from 'semantic-ui-react';
-import GoogleMapReact from 'google-map-react';
+import ReactMapboxGl, { Layer, Marker } from 'react-mapbox-gl';
 
-class RouteMap extends Component{
+class RouteMap extends Component {
   state = {
     Map: null
   }
     
-  componentDidUpdate(prevProps){
-    if(!prevProps.mapboxKey && this.props.mapboxKey){
+  componentDidUpdate(prevProps) {
+    if(!prevProps.mapboxKey && this.props.mapboxKey) {
       this.setState({
         Map: ReactMapboxGl({
           accessToken: this.props.mapboxKey
@@ -19,7 +17,7 @@ class RouteMap extends Component{
   }
     
   componentDidMount(){
-    if(this.props.mapboxKey){
+    if(this.props.mapboxKey) {
       this.setState({
         Map: ReactMapboxGl({
           accessToken: this.props.mapboxKey
@@ -35,7 +33,6 @@ class RouteMap extends Component{
       style={"mapbox://styles/mapbox/streets-v9"}
       center={[this.props.startLng, this.props.startLat]}
       containerStyle={{
-        position: 'relative',
         height: "300px",
         width: "400px",
       }}>
@@ -46,7 +43,7 @@ class RouteMap extends Component{
           'icon-image': 'star-15',
           'icon-allow-overlap': true }}>
     <Marker coordinates={[this.props.startLng, this.props.startLat]}/>
-    <Marker coordinates={[this.props.destinationLngLatdestinationLng, this.props.destinationLat]}/>
+    <Marker coordinates={[this.props.destinationLng, this.props.destinationLat]}/>
     </Layer>
     </Map>
     ): null
