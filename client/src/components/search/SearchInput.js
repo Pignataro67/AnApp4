@@ -12,8 +12,8 @@ class SearchInput extends Component {
     }
   }
 
-  componentDidUpdate(prevProps){
-    if(prevProps.suggestedLocations !== this.props.suggestedLocations && this.props.suggestedLocations.length){
+  componentDidUpdate(prevProps) {
+    if(prevProps.suggestedLocations !== this.props.suggestedLocations && this.props.suggestedLocations.length) {
       this.addSuggestedLocationsToState(this.props.suggestedLocations)
     }
   }
@@ -23,11 +23,10 @@ class SearchInput extends Component {
     this.setState({
       suggestedLocations, 
       isDropdownOpen: true
-    })
+    });
   }
 
   handleDropdownChange = (e) => {
-    debugger
     this.setState({
       isDropdownOpen: false
     })
@@ -55,7 +54,7 @@ class SearchInput extends Component {
         <Icon name='search'/> 
       </Button>
       </form>
-    )
+    );
   }
 }
   
