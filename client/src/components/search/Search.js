@@ -17,37 +17,38 @@ handleFormSubmit = async (e) => {
   await this.props.actions.convertLatLong(this.state.startingLocation, this.state.destination)
   this.setState({
   redirectToConfirmRoute: true
-  })
-  
-  this.props.actions.fetchStartingLocation(this.state.startingLocation)
+  });
 }
 
 handleChangeStart = (e) => {
   this.setState({
       startingLocation: e.target.value,
-  })
+  });
 }
 
 handleChangeDestination = (e) => {
   this.setState({
     destination: e.target.value
-  })
+  });
 }
 
 handleStartSearch = (e) => {
   e.preventDefault()
-}
-
-handleDestinationSearch = (e) => {
-  console.log(this.state.destination)
   e.stopPropagation()
   this.props.actions.fetchStartingLocation(this.state.startingLocation)
 }
 
-handleUpdateAddress = (e) => {
+handleDestinationSearch = (e) => {
+  console.log(this.state.destination)
+  e.preventDefault()
+  e.stopPropagation()
+  this.props.actions.fetchStartingLocation(this.state.destination)
+}
+
+handleUpdateStartAddress = (e) => {
   this.setState({
       startingLocation: e.currentTarget.innerText,
-  })
+  });
 }
 
   render() {
