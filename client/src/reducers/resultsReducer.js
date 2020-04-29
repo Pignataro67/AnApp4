@@ -14,6 +14,6 @@ export default function resultsReducer(state = {
     case "ADD_LYFT_ESTIMATES_TO_STATE":
       return {...state, isFetchingLyftEstimate: false, lyftEstimates: action.estimates }
     default:
-          return state
+      return state
   }
 }
