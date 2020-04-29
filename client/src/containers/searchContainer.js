@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import Search from '../components/search/Search';
 import CardLabel from '../components/CardLabel';
+import Card from '../components/Card';
 import * as searchActions from '../actions/searchActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Card from '../components/Card';
 
-class SearchContainer extends Component{
+class SearchContainer extends Component {
 
   render() {
     let cardLabel = "Enter your starting and ending locations below:"
     return (
       <Card>
         <CardLabel cardLabel={cardLabel} />
-        <Search {...this.props}/> 
+        <Search {...this.props} /> 
       </Card>
-    )
-  };
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-  startingLocation: state.startingLocation,
-  destination: state.destination
+  ...state
 })
 
 const mapDispatchToProps = (dispatch) => {
