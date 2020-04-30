@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Card from './components/Card';
-import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ConfirmRouteContainer from './containers/ConfirmRouteContainer';
 import ResultsContainer from './containers/ResultsContainer';
 import SearchContainer from './containers/SearchContainer';
 import Background from './images/Background.jpg';
-import { getMapboxKey } from './actions/fetchLocations';
+import { getMapboxKey } from './actions/mapboxActions';
+import './App.css';
 
 class App extends Component {
   
@@ -16,7 +15,7 @@ class App extends Component {
   }
 
   render() {
-  return (
+    return (
     <div style={{
       display: "flex",
       flexDirection: 'column',
