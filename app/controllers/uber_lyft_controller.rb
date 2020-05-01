@@ -6,7 +6,6 @@ class UberLyftController < ApplicationController
     destinationLat = params[:destinationLat]
     destinationLng = params[:destinationLng]
     response = RestClient.get("https://api.uber.com/v1.2/estimates/price?start_latitude=#{startLat}&start_longitude=#{startLng}&end_latitude=#{destinationLat}&end_longitude=#{destinationLng}", headers={:Authorization => "Token #{ENV['UBER_ESTIMATE']}"})
-
     render json: response
   end
   
