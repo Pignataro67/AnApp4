@@ -32,3 +32,4 @@
 
 # Google_API_Key(s)
 .env
+app/.env
